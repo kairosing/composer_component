@@ -40,6 +40,13 @@ class HomeController{
 
     }
 
+    public function action_user($vars){
+
+        $users = $this->db->getOne('users', $vars['id']);
+        echo $this->templates->render('edit', ['user' => $users]);
+
+    }
+
 
     public function edit_user()
     {

@@ -44,7 +44,7 @@ $this->layout('layout', ['title' => 'User Profile']) ?>
                 <?php foreach ($postsInView as $user):?>
                     <tr>
                         <td><?php echo $user['id'];?></td>
-                        <td><a href="/edit/<?php echo $user['id'];?><"><?php echo $user['username'];?></a></td>
+                        <td><a href="/action/<?php echo $user['id'];?>"><?php echo $user['username'];?></a></td>
                         <td><?php echo $user['email'];?></td>
                         <td><a href="/edit/<?php echo $user['id'];?>" class="btn btn-warning">Edit</a></td>
                         <td><a href="/delete/<?php echo $user['id'];?>" class="btn btn-danger" onclick="return confirm('Delete this user?');">Delete</a></td>

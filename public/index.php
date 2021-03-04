@@ -13,6 +13,8 @@ $dispatcher = FastRoute\simpleDispatcher(function(FastRoute\RouteCollector $r) {
     $r->addRoute('GET', '/create', ['App\controllers\HomeController', 'create_user']);
     $r->addRoute('POST', '/create/new', ['App\controllers\HomeController', 'create_user_handler']);
 
+    $r->addRoute('GET', '/action/{id:\d+}', ['App\controllers\HomeController', 'action_user']);
+
      $r->addRoute('GET', '/edit/{id:\d+}', ['App\controllers\HomeController', 'edit']);
      $r->addRoute('POST', '/edit/user', ['App\controllers\HomeController', 'edit_user']);
 
@@ -30,7 +32,6 @@ if (false !== $pos = strpos($uri, '?')) {
     $uri = substr($uri, 0, $pos);
 }
 $uri = rawurldecode($uri);
-
 $routeInfo = $dispatcher->dispatch($httpMethod, $uri);
 switch ($routeInfo[0]) {
     case FastRoute\Dispatcher::NOT_FOUND:
